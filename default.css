@@ -1,0 +1,95 @@
+* {
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing : border-box;
+    box-sizing : border-box;
+    margin: 0px;
+    padding: 0px;
+    }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    color: #172e4c;
+    overflow: hidden;
+    }
+
+
+   
+.wrapper {
+    position: relative;
+    padding: 20px;
+    margin: 0px auto;
+    
+    }
+/* DONUTCHART */
+
+.donutchart {
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+}    
+
+.graph {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    -webkit-transform: rotate(0deg) scale(0);
+    -moz-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    }
+
+.graph.graph-startanimation {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    -moz-transition: -moz-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    -webkit-transform: rotate(360deg) scale(1);
+    -moz-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+    }
+
+.graph-center {
+    display: table;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    
+    z-index: 101;
+    }
+
+.pie, .pie > div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    -moz-transition: -moz-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    }
+
+.pie > div {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    }
+
+.pie > div > div {
+    width: 50%;
+    height: 100%;
+    border-right: 3px solid #fff;
+    }
