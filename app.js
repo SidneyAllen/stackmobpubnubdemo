@@ -34,6 +34,8 @@ var myApp = (function($) {
       subscribe_key : 'sub-c-10526f7d-2df0-11e2-ad5c-29dc07ffb374'
   });
 
+  var currentQ;
+
   function updateDisplay(pubData) {       
     answers = $(pubData.answers).sortAnswers();
     answersAvg = answers.setDataArray();
@@ -303,7 +305,14 @@ var myApp = (function($) {
 
     update: function(e) {
       // LISTEN
-      console.log(e);
+      if(currentQ !== undefined) {
+        pubnub.unsubscribe({
+            channel : currentQ
+        });
+  
+      }
+      currentQ = e;
+      
       pubnub.subscribe({
           channel : e,
           message : function(pubData){  updateDisplay(pubData); }
@@ -330,6 +339,7 @@ var myApp = (function($) {
     },
 
     changePage: function(page, reverse) {
+      console.log(currentQ)
       $(page.el).attr('data-role', 'page');
       page.render();
       $('body').append($(page.el));
